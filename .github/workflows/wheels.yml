@@ -9,19 +9,22 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-20.04, windows-2019, macOS-10.15 ]
-        python: [ 36, 37 ]
+        python: [ 37 ]
         bitness: [ 64 ]
         manylinux_image: [ manylinux1, manylinux2010 ]
         include:
           # Run 32 and 64 bit version in parallel for Linux and Windows
           - os: windows-latest
             bitness: 64
+            python: 37
             platform_id: win_amd64
           - os: ubuntu-latest
             bitness: 64
+            python: 37
             platform_id: manylinux_x86_64
           - os: macos-latest
             bitness: 64
+            python: 37
             platform_id: macosx_x86_64
         exclude:
           - os: macos-latest
